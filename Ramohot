@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramo Hot Wheels para Sebastián 🏎️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#050505,#171717,#330000);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/* TÍTULO */
+h1{
+    margin:20px 10px 5px;
+    color:#ffcc00;
+    font-size:30px;
+    text-shadow:0 0 10px #ff3300;
+}
+
+.subtitulo{
+    color:#fff;
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+/* RAMO */
+.ramo{
+    position:relative;
+    width:360px;
+    height:570px;
+    margin:10px auto 0;
+}
+
+/* =========================
+   CARRITOS
+========================= */
+.auto{
+    position:absolute;
+    width:105px;
+    height:65px;
+    object-fit:cover;
+    border-radius:12px;
+    border:3px solid #ffcc00;
+    box-shadow:0 0 12px rgba(255,80,0,.8);
+    z-index:5;
+    transition:.3s;
+}
+
+.auto:hover{
+    transform:scale(1.08);
+}
+
+/* POSICIÓN DE CADA CARRITO */
+.a1{
+    top:25px;
+    left:128px;
+    transform:rotate(0deg);
+}
+
+.a2{
+    top:105px;
+    left:35px;
+    transform:rotate(-12deg);
+}
+
+.a3{
+    top:105px;
+    right:35px;
+    transform:rotate(12deg);
+}
+
+.a4{
+    top:190px;
+    left:65px;
+    transform:rotate(-8deg);
+}
+
+.a5{
+    top:190px;
+    right:65px;
+    transform:rotate(8deg);
+}
+
+/* =========================
+   TALLOS
+========================= */
+.tallo{
+    position:absolute;
+    width:8px;
+    height:285px;
+    background:linear-gradient(to right,#126b25,#42b64b,#126b25);
+    border-radius:10px;
+    bottom:145px;
+    transform-origin:bottom center;
+    z-index:1;
+}
+
+/* Cada tallo termina debajo de su carrito */
+.t1{
+    left:176px;
+    transform:rotate(0deg);
+}
+
+.t2{
+    left:174px;
+    transform:rotate(-17deg);
+}
+
+.t3{
+    left:182px;
+    transform:rotate(17deg);
+}
+
+.t4{
+    left:181px;
+    transform:rotate(-27deg);
+}
+
+.t5{
+    left:177px;
+    transform:rotate(27deg);
+}
+
+/* =========================
+   HOJAS
+========================= */
+.hoja{
+    position:absolute;
+    width:38px;
+    height:18px;
+    background:#2e9e42;
+    border-radius:100% 0 100% 0;
+    z-index:2;
+    box-shadow:0 0 5px rgba(0,255,60,.3);
+}
+
+.h1{
+    left:135px;
+    top:290px;
+    transform:rotate(-25deg);
+}
+
+.h2{
+    left:105px;
+    top:335px;
+    transform:rotate(25deg);
+}
+
+.h3{
+    right:105px;
+    top:330px;
+    transform:rotate(-25deg);
+}
+
+.h4{
+    right:75px;
+    top:385px;
+    transform:rotate(25deg);
+}
+
+.h5{
+    left:150px;
+    top:405px;
+    transform:rotate(-20deg);
+}
+
+.h6{
+    right:145px;
+    top:420px;
+    transform:rotate(20deg);
+}
+
+/* =========================
+   TIERRA
+========================= */
+.tierra{
+    position:absolute;
+    bottom:142px;
+    left:65px;
+    width:230px;
+    height:38px;
+    background:#4b2818;
+    border-radius:50%;
+    z-index:3;
+    border:3px solid #2c160d;
+}
+
+/* =========================
+   MACETA
+========================= */
+.maceta{
+    position:absolute;
+    bottom:0;
+    left:55px;
+    width:250px;
+    height:160px;
+    background:linear-gradient(135deg,#e63920,#a90f0f,#720707);
+    clip-path:polygon(8% 0,92% 0,78% 100%,22% 100%);
+    border-radius:0 0 30px 30px;
+    box-shadow:0 8px 20px rgba(0,0,0,.7);
+    z-index:4;
+}
+
+/* BORDE DE MACETA */
+.borde-maceta{
+    position:absolute;
+    bottom:140px;
+    left:45px;
+    width:270px;
+    height:28px;
+    background:linear-gradient(to bottom,#ff4b25,#a00000);
+    border-radius:15px;
+    z-index:6;
+    border:3px solid #650000;
+}
+
+/* LOGO */
+.logo{
+    position:absolute;
+    bottom:75px;
+    left:85px;
+    width:190px;
+    padding:8px 5px;
+    background:#111;
+    color:#ffcc00;
+    font-weight:bold;
+    font-size:17px;
+    border:3px solid #ffcc00;
+    border-radius:12px;
+    transform:rotate(-2deg);
+    z-index:7;
+    text-shadow:0 0 5px red;
+}
+
+/* =========================
+   CINTA
+========================= */
+.cinta{
+    position:absolute;
+    bottom:105px;
+    left:145px;
+    width:70px;
+    height:45px;
+    background:#ffd000;
+    z-index:8;
+    transform:rotate(-8deg);
+    box-shadow:0 0 8px rgba(255,200,0,.8);
+}
+
+/* =========================
+   LAZO
+========================= */
+.lazo{
+    position:absolute;
+    bottom:125px;
+    left:105px;
+    width:65px;
+    height:45px;
+    background:#ffcc00;
+    border-radius:50% 10% 50% 10%;
+    transform:rotate(-25deg);
+    z-index:9;
+}
+
+.lazo2{
+    position:absolute;
+    bottom:125px;
+    right:105px;
+    width:65px;
+    height:45px;
+    background:#ffcc00;
+    border-radius:10% 50% 10% 50%;
+    transform:rotate(25deg);
+    z-index:9;
+}
+
+.centro-lazo{
+    position:absolute;
+    bottom:135px;
+    left:155px;
+    width:50px;
+    height:40px;
+    background:#ff9900;
+    border-radius:50%;
+    z-index:10;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+button{
+    margin-top:10px;
+    padding:14px 25px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#ff0000,#ff6600);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 15px rgba(255,60,0,.7);
+}
+
+button:active{
+    transform:scale(.95);
+}
+
+/* =========================
+   MENSAJE
+========================= */
+#mensaje{
+    display:none;
+    width:90%;
+    max-width:500px;
+    margin:20px auto;
+    padding:20px;
+    background:rgba(0,0,0,.75);
+    border:2px solid #ffcc00;
+    border-radius:20px;
+    color:white;
+    line-height:1.6;
+    box-shadow:0 0 20px rgba(255,180,0,.4);
+}
+
+#mensaje strong{
+    color:#ffcc00;
+}
+
+/* CORAZONES */
+.corazon{
+    position:fixed;
+    color:#ff3333;
+    font-size:20px;
+    animation:subir 4s linear infinite;
+    opacity:.8;
+}
+
+@keyframes subir{
+    0%{
+        transform:translateY(100vh) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-10vh) scale(1.2);
+        opacity:0;
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:400px){
+    .ramo{
+        transform:scale(.88);
+        transform-origin:top center;
+        margin-bottom:-50px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🏎️ Ramo Hot Wheels 🏎️</h1>
+
+<div class="subtitulo">
+    Para mi amigo <strong>Sebastián</strong> ❤️
+</div>
+
+<div class="ramo">
+
+    <!-- CARRITOS -->
+    <img src="hotwheels1.jpg" class="auto a1" alt="Hot Wheels 1">
+    <img src="hotwheels2.jpg" class="auto a2" alt="Hot Wheels 2">
+    <img src="hotwheels3.jpg" class="auto a3" alt="Hot Wheels 3">
+    <img src="hotwheels4.jpg" class="auto a4" alt="Hot Wheels 4">
+    <img src="hotwheels5.jpg" class="auto a5" alt="Hot Wheels 5">
+
+    <!-- TALLOS -->
+    <div class="tallo t1"></div>
+    <div class="tallo t2"></div>
+    <div class="tallo t3"></div>
+    <div class="tallo t4"></div>
+    <div class="tallo t5"></div>
+
+    <!-- HOJAS -->
+    <div class="hoja h1"></div>
+    <div class="hoja h2"></div>
+    <div class="hoja h3"></div>
+    <div class="hoja h4"></div>
+    <div class="hoja h5"></div>
+    <div class="hoja h6"></div>
+
+    <!-- TIERRA -->
+    <div class="tierra"></div>
+
+    <!-- MACETA -->
+    <div class="maceta"></div>
+
+    <div class="borde-maceta"></div>
+
+    <div class="logo">
+        🏎️ HOT WHEELS 🏎️
+    </div>
+
+    <!-- CINTA Y LAZO -->
+    <div class="cinta"></div>
+    <div class="lazo"></div>
+    <div class="lazo2"></div>
+    <div class="centro-lazo"></div>
+
+</div>
+
+<button onclick="mostrarMensaje()">
+    🎁 Abrir mensaje
+</button>
+
+<div id="mensaje">
+    <strong>Para Sebastián ❤️</strong>
+    <br><br>
+
+    Este pequeño ramo de Hot Wheels es para recordarte
+    lo genial que es tener un amigo como tú. 🏎️🔥
+    <br><br>
+
+    Gracias por todas las risas, los momentos y las
+    experiencias compartidas. Espero que nuestra amistad
+    siga avanzando a toda velocidad. 🚗💨
+    <br><br>
+
+    ¡Nunca cambies y sigue siendo increíble! ❤️
+    <br><br>
+
+    <strong>De tu amigo/a 🤝</strong>
+</div>
+
+<script>
+
+/* MENSAJE */
+function mostrarMensaje(){
+
+    const mensaje = document.getElementById("mensaje");
+
+    mensaje.style.display = "block";
+
+    reproducirMotor();
+
+    crearCorazones();
+}
+
+/* SONIDO DE MOTOR */
+function reproducirMotor(){
+
+    const AudioContext =
+        window.AudioContext || window.webkitAudioContext;
+
+    if(!AudioContext) return;
+
+    const audio = new AudioContext();
+
+    const oscilador = audio.createOscillator();
+    const ganancia = audio.createGain();
+
+    oscilador.type = "sawtooth";
+
+    oscilador.frequency.setValueAtTime(
+        100,
+        audio.currentTime
+    );
+
+    oscilador.frequency.exponentialRampToValueAtTime(
+        500,
+        audio.currentTime + 0.8
+    );
+
+    ganancia.gain.setValueAtTime(
+        0.15,
+        audio.currentTime
+    );
+
+    ganancia.gain.exponentialRampToValueAtTime(
+        0.001,
+        audio.currentTime + 0.8
+    );
+
+    oscilador.connect(ganancia);
+    ganancia.connect(audio.destination);
+
+    oscilador.start();
+
+    oscilador.stop(audio.currentTime + 0.8);
+}
+
+/* CORAZONES */
+function crearCorazones(){
+
+    for(let i=0;i<15;i++){
+
+        const corazon =
+            document.createElement("div");
+
+        corazon.className="corazon";
+        corazon.innerHTML="❤️";
+
+        corazon.style.left =
+            Math.random()*100+"vw";
+
+        corazon.style.animationDelay =
+            Math.random()*2+"s";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(()=>{
+            corazon.remove();
+        },4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
